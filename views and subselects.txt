@@ -1,0 +1,33 @@
+-- SUBSELECT
+====================================
+select 
+        substr(a, 1, 2) as State,
+        substr(a, 3) as State_Code,
+        substr(b, 1, 2) as Country,
+        substr(b, 3) as Country_Code
+from t;
+
+
+SELECT co.name as Name, cc.country_code as Code from (
+    select 
+        substr(a, 1, 2) as State,
+        substr(a, 3) as State_Code,
+        substr(b, 1, 2) as Country,
+        substr(b, 3) as Country_Code
+    from t
+) as CC 
+ join country as co
+ on co.code2 = cc.country;
+
+
+-- VIEWS
+========================================================
+
+create view myview as
+select id, album_id, title, track_number, duration/60 as m, duration%60 as s;
+
+select a.id, a.title, a.artist, m.m, m.s
+    from album as a
+    join myview as m
+    on m.album_id = a.id;
+

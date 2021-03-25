@@ -1,0 +1,33 @@
+-- TRIGGERS
+================================
+
+create table Student(
+    Id int not null,
+    Name text,
+    Proctor text
+);
+
+create table Teacher(
+    Id int,
+    Tid int,
+    Name text
+);
+
+
+insert into student(id, name) values(1, 'vinay');
+insert into student(id, name) values(2, 'akash');
+insert into student(id, name) values(3, 'prakash');
+insert into student(id, name) values(4, 'sonali');
+insert into student(id, name) values(5, 'ayesha');select * from student;
+
+
+create trigger advicers after insert on Teacher
+    Begin
+        update student set Proctor = New.Name where student.Id = New.Tid;
+    End;
+
+
+insert into teacher(id, tid, name) values(1, 1, 'First Trainer');
+insert into teacher(id, tid, name) values(2, 4, 'Last Trainer');
+select * from teacher;
+select * from student;

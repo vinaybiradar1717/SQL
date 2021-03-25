@@ -1,0 +1,35 @@
+select * from country;
+
+
+-- ORDER BY
+select * from country order by continent;
+
+
+-- AS
+select name, surfacearea as "area" from country order by region;
+
+
+-- WHERE
+SELECT name, continent, region from country where continent = 'Africa';
+SELECT name, continent, region from country where continent = 'Africa' order by region;
+SELECT name, continent, region from country where continent = 'Africa' order by region limit 5;
+SELECT name, continent, region from country where continent = 'Africa' order by region limit 5 offset 5; (leaves first 5)
+
+
+-- COUNT
+select count(*) from country;
+select count(*) from country where surfacearea > 652000;
+
+
+-- INSERT
+insert into customer(id, name, address, city, state, zip) values('5', 'Kim', 'Delhi', 'Chawk', 'DE', '897645');
+insert into customer values('4', 'Vin', 'Bengaluru', 'Bellandoor', 'KA', '123455');
+insert into customer(id, name, zip) values('6', 'Tim', '344546');
+
+
+-- UPDATE
+UPDATE customer set address = 'Pune', city = 'cool', state = 'MH' where id = '6';
+
+
+-- DELETE
+delete from customer where id=5;

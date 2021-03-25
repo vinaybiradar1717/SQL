@@ -1,0 +1,28 @@
+-- TRANSACTION
+==============================
+
+create table one(
+    id int,
+    a text,
+    b int
+    );
+
+create table two(
+    id int,
+    b int,
+    c text
+    );
+    
+insert into one values(1, 'first', 10);
+insert into one values(2, 'second', 10);
+insert into one values(3, 'third', 10);
+insert into one values(4, 'fourth', 10);
+
+select * from one;
+
+begin transaction;
+insert into two values(2, 3, 'two');
+update one set b=b-3 where id = 2;
+end transaction;
+
+select * from one;

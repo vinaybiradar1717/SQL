@@ -1,0 +1,11 @@
+-- DATE and TIME
+===========================
+
+select datetime('now');
+select date('now');
+select time('now');
+
+select datetime('now', '+1 day');
+select datetime('now', '+1 hour');
+select datetime('now', '+1 year');
+select datetime('now', '+1 year', '+32 days', '+4 hour');

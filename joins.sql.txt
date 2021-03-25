@@ -1,0 +1,28 @@
+-- JOIN
+=======================================
+select l.lnames left_names, r.rnames as right_names
+    from l JOIN r 
+    on l.lid = r.rid;
+
+select sale.id, sale.customer_id, item.name, sale.price, item.description
+    from sale join item
+    on sale.item_id = item.id;
+
+select  s.customer_id, c.name, i.name, s.price, i.description
+    from sale as s
+    join item as i on s.item_id = i.id
+    join customer as c on s.customer_id = c.id
+    order by c.name;
+
+-- RIGHT JOIN
+=======================================
+select l.lnames left_names, r.rnames as right_names
+    from l RIGHT JOIN r 
+    on l.lid = r.rid;
+
+
+-- LEFT JOIN
+=======================================
+select r.rnames, l.lnames
+    from r left join l
+    on r.rid = l.lid;

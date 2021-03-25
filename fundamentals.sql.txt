@@ -1,0 +1,74 @@
+-- CREATE TABLE
+================================
+create table example_1 (
+    a interger,
+    b char
+);
+
+create table example_1 (
+    id interger primary key,
+    a interger,
+    b char
+);
+
+-- DROP TABLE
+================================
+DROP table example_1;
+DROP table if exists example_1;
+
+
+-- INSERTING TABLE
+================================
+insert into example_1 values(1, 'one');
+insert into example_1 (b) values('two');
+create table example_1(a interger not null , b text default 'val');
+insert into example_1 default values;
+insert into example_1 SELECT id, name from example_2;
+
+
+-- DELETING ROW
+================================
+delete from example_1 where b='one';
+
+
+-- ALTER TABLE
+================================
+alter table example_1 add c text;
+alter table example_1 add d text default 'valval';
+
+
+-- WHERE CLAUSE
+================================
+select name, continent, population from country
+    where population > 2000000 order by name desc;
+
+
+-- LIKE CLAUSE
+================================
+select name, continent, population from country
+    where name LIKE '%island%' order by name;
+
+
+-- IN CLAUSE
+================================
+select name, continent, population from country
+    where continent IN ('Asia') order by name desc;
+
+
+-- DISTINCT (removing)
+================================
+select DISTINCT continent from country;
+
+
+-- CASE CLAUSE
+================================
+select 
+    case when a then 'true' else 'false' end as AA, 
+    case when b then 'true' else 'false' end as BB
+from exa;
+
+
+
+
+
+
